@@ -1,33 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { StackNavigator } from 'react-navigation'
 import { StyleSheet, Text, View, ImageBackground, Platform } from 'react-native'
-import TodoButton from './components/TodoButton'
+import Home from './Home'
+import Signup from './Signup'
 
-export default class App extends React.Component {
+const Navigator = StackNavigator(
+  {
+    Home: { screen: Home },
+    Signup: { screen: Signup }
+  },
+  {
+    cardStyle: {
+      backgroundColor: 'transparent'
+    },
+    transitionConfig: () => ({
+      containerStyle: {
+        backgroundColor: 'transparent'
+      }
+    }),
+    header: {
+      backgroundColor: 'transparent',
+      position: 'absolute',
+      height: 0,
+      top: 0,
+      left: 0,
+      right: 0
+    }
+  }
+)
+
+class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.navigatorContainer}>
         <ImageBackground
           source={require('./assets/background.jpg')}
           style={styles.imageContainer}
           imageStyle={styles.image}
         >
-          <View style={styles.detailsContainer}>
-            <Text style={[styles.largeText, styles.textStyle]}>
-              TodoList Geo
-            </Text>
-            <Text style={{ color: '#bdc3c7' }}>Location based to do list</Text>
-            <TodoButton
-              color="white"
-              title="Sign up"
-              onPress={() => console.warn('hello')}
-              bgColor="green"
-            />
-          </View>
+          <Navigator />
         </ImageBackground>
       </View>
     )
   }
 }
+
+export default App
 
 const styles = StyleSheet.create({
   container: {
@@ -58,5 +76,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: Platform.OS === 'ios' ? 'AvenirNext-Regular' : 'Roboto',
     color: 'white'
+  },
+  navigatorContainer: {
+    flex: 1,
+    backgroundColor: 'transparent'
   }
 })
