@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, ImageBackground, Platform } from 'react-native'
+import TodoButton from './components/TodoButton'
 
 export default class App extends React.Component {
   render() {
@@ -15,6 +16,12 @@ export default class App extends React.Component {
               TodoList Geo
             </Text>
             <Text style={{ color: '#bdc3c7' }}>Location based to do list</Text>
+            <TodoButton
+              color="white"
+              title="Sign up"
+              onPress={() => console.warn('hello')}
+              bgColor="green"
+            />
           </View>
         </ImageBackground>
       </View>
