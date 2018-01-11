@@ -1,25 +1,29 @@
 import React from 'react'
-import { StyleSheet, Text, View, ImageBackground, Platform } from 'react-native'
-import TodoButton from './components/TodoButton'
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Platform,
+  TouchableOpacity
+} from 'react-native'
 import HeaderStyles from './components/HeaderStyle'
 
 class Home extends React.Component {
   static navigationOptions = {
-    headerStyle: { ...HeaderStyles },
-    headerTintColor: '#fff'
+    headerStyle: { ...HeaderStyles }
   }
   render() {
     const { navigate } = this.props.navigation
     return (
       <View style={styles.detailsContainer}>
         <Text style={[styles.largeText, styles.textStyle]}>TodoList Geo</Text>
-        <Text style={{ color: '#bdc3c7' }}>Location based to do list</Text>
-        <TodoButton
-          color="white"
-          title="Sign up"
-          onPress={() => navigate('Signup')}
-          bgColor="green"
-        />
+        <Text style={{ color: '#bdc3c7', marginBottom: 10 }}>
+          Location based to do list
+        </Text>
+        <TouchableOpacity onPress={() => navigate('Signup')}>
+          <Text style={{ color: 'white' }}>Sign Up</Text>
+        </TouchableOpacity>
       </View>
     )
   }
