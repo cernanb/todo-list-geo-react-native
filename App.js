@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { StackNavigator } from 'react-navigation'
-import { StyleSheet, Text, View, ImageBackground, Platform } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Platform,
+  Easing,
+  Animated
+} from 'react-native'
 import Home from './Home'
 import Signup from './Signup'
 
@@ -16,16 +24,13 @@ const Navigator = StackNavigator(
     transitionConfig: () => ({
       containerStyle: {
         backgroundColor: 'transparent'
+      },
+      transitionSpec: {
+        duration: 200,
+        easing: Easing.out(Easing.poly(4)),
+        timing: Animated.timing
       }
-    }),
-    header: {
-      backgroundColor: 'transparent',
-      position: 'absolute',
-      height: 0,
-      top: 0,
-      left: 0,
-      right: 0
-    }
+    })
   }
 )
 
