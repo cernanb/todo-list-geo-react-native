@@ -1,14 +1,38 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity
+} from 'react-native'
+import TodoButton from './components/TodoButton'
 import HeaderStyles from './components/HeaderStyle'
 
 class Signup extends Component {
   static navigationOptions = {
-    headerStyle: { ...HeaderStyles }
+    headerStyle: { ...HeaderStyles },
+    headerTintColor: 'white'
   }
+
+  state = {
+    username: '',
+    password: ''
+  }
+
+  onChange = value => {
+    console.warn(e.target)
+  }
+
+  submit = () => {
+    console.warn('submit')
+    this.setState({ username: '', password: '' })
+  }
+
   render() {
     return (
       <View style={styles.formContainer}>
+        <Text style={styles.inputLabel}>Username</Text>
         <TextInput
           style={{
             height: 30,
@@ -20,9 +44,31 @@ class Signup extends Component {
             color: 'white',
             marginBottom: 20
           }}
+          value={this.state.username}
+          onChangeText={username => this.setState({ username })}
         />
-        <Text>Sign Up</Text>
-        <Text>Sign In</Text>
+        <Text style={styles.inputLabel}>Password</Text>
+        <TextInput
+          style={{
+            height: 30,
+            width: 200,
+            borderColor: 'white',
+            borderWidth: 1,
+            borderRadius: 5,
+            textAlign: 'center',
+            color: 'white',
+            marginBottom: 20
+          }}
+          secureTextEntry
+          value={this.state.password}
+          onChangeText={password => this.setState({ password })}
+        />
+        <TodoButton
+          onPress={this.submit}
+          title="Sign Up"
+          color="black"
+          bgColor="white"
+        />
       </View>
     )
   }
@@ -35,5 +81,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  inputLabel: {
+    fontSize: 20,
+    color: 'white',
+    marginBottom: 10
   }
 })
