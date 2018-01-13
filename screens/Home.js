@@ -7,7 +7,7 @@ import {
   Platform,
   TouchableOpacity
 } from 'react-native'
-import HeaderStyles from './components/HeaderStyle'
+import HeaderStyles from '../components/HeaderStyle'
 
 class Home extends React.Component {
   static navigationOptions = {

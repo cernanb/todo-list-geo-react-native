@@ -9,8 +9,8 @@ import {
   Easing,
   Animated
 } from 'react-native'
-import Home from './Home'
-import Signup from './Signup'
+import Home from './screens/Home'
+import Signup from './screens/Signup'
 
 const Navigator = StackNavigator(
   {

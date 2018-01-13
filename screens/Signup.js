@@ -6,8 +6,8 @@ import {
   TextInput,
   TouchableOpacity
 } from 'react-native'
-import TodoButton from './components/TodoButton'
-import HeaderStyles from './components/HeaderStyle'
+import TodoButton from '../components/TodoButton'
+import HeaderStyles from '../components/HeaderStyle'
 
 class Signup extends Component {
   static navigationOptions = {
