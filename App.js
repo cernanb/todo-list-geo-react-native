@@ -11,11 +11,13 @@ import {
 } from 'react-native'
 import Home from './screens/Home'
 import Signup from './screens/Signup'
+import TodoList from './screens/TodoList'
 
 const Navigator = StackNavigator(
   {
     Home: { screen: Home },
-    Signup: { screen: Signup }
+    Signup: { screen: Signup },
+    TodoList: { screen: TodoList }
   },
   {
     cardStyle: {

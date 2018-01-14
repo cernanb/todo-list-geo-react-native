@@ -20,12 +20,9 @@ class Signup extends Component {
     password: ''
   }
 
-  onChange = value => {
-    console.warn(e.target)
-  }
-
   submit = () => {
-    console.warn('submit')
+    const { navigate } = this.props.navigation
+    navigate('TodoList')
     this.setState({ username: '', password: '' })
   }
 
