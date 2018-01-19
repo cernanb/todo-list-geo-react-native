@@ -24,6 +24,7 @@ class Home extends React.Component {
         <TouchableOpacity onPress={() => navigate('Signup')}>
           <Text style={{ color: 'white' }}>Sign Up</Text>
         </TouchableOpacity>
+        <Text>Already have an account? Sign in</Text>
       </View>
     )
   }
